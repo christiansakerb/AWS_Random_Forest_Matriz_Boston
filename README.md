@@ -28,7 +28,7 @@ obstaculizar el progreso de la investigación. Cabe destacar que los datos utili
 carácter privado.
 
 ### Integrantes 
-Creator: Christian Saker
+- Creator: Christian Saker
 - Principal Investigator: Laura Rodriguez
 - Data Manager: Brayan Torres, Jesica Vique
 - Project Administrator: Christian Saker
