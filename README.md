@@ -13,6 +13,11 @@ Para lo anterior la empresa cuenta con un sistema de categorización de los dist
 Donde los productos Estrella son los productos que más contribución generan y más unidades mueven, mientras que los interrogantes son un grupo grande de productos que individualmente contribuyen muy poco y rotan muy poco. Por lo anterior cada cuadrante tiene su plan de acción en cuanto a su administración.
 Esta categorización como se menciono antes tiene distintos fines en la optimización del portafolio, y se actualiza mensualmente, lo que significa que un producto que hoy es Estrella, puede no seguirlo siendo en el próximo mes, por lo que el plan que tenía cambiará al de su nuevo cuadrante. Sin embargo, al ser esta información utilizada para distintos fines la empresa desea anticiparse y detectar posibles caídas de los cuadrantes superiores a interrogantes para reducir sobreabastecimientos y sobrecostos.
 
+### Conjunto de datos
+Para el conjunto de datos la empresa ha entregado una base de datos consolidada en un archivo en Excel llamada “data”, la cual contiene información histórica de los pedidos facturados y no facturados de los últimos meses por cada producto con información cifrada de ventas y unidades para la realización del análisis, a continuación se muestra un ejemplo de la base y se explica cada columna:
+
+![Conjunto de datos](https://raw.githubusercontent.com/christiansakerb/Project_MT_DS/blob/main/imagen/set_datos.png)
+
 ### What data will you collect or create?
 Este proyecto se basa en la utilización de datos reales de ventas en unidades y de la rentabilidad/contribución de muebles de una empresa cuyo nombre se mantiene confidencial, a la cual hemos tenido acceso desde el año 2021. Estos datos están almacenados en un datamart y se recopilan de manera continua. Los datos de ventas se obtienen diariamente a través del sistema de ventas y facturación de la empresa, y también del modelo de rentabilidad de productos. La información relacionada con los productos se encuentra en el repositorio de datos maestros, que incluye detalles como segmentos de productos, códigos, nombres, colores,
 marcas, entre otros.
