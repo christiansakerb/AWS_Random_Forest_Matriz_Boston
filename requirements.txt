@@ -5,3 +5,4 @@ numpy==1.25.2
 imbalanced-learn==0.10.1
 mlflow==2.8.0
 scikit-learn==1.2.1
+openpyxl==3.0.10
