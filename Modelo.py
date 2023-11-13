@@ -18,6 +18,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.ensemble import GradientBoostingClassifier
 
+experiment = mlflow.set_experiment("sklearn-matriz")
+
 Clasificacion = pd.read_excel('Data.xlsx',sheet_name='Datos')
 Ventas_cerrado = pd.read_excel('Data.xlsx',sheet_name='Datos mes cerrados')
 Ventas_semanales = pd.read_excel('Data.xlsx',sheet_name='Datos_mes_dia')
@@ -57,10 +59,32 @@ smote = SMOTE(random_state=42)
 
 X_train_resampled, y_train_resampled = smote.fit_resample(X_train.to_numpy(), y_train.to_numpy())
 
-model = MultiOutputClassifier(RandomForestClassifier())
-model.fit(X_train_resampled, y_train_resampled)
+
 
 # Hacer predicciones
-y_pred = model.predict(X_test.to_numpy())
-accuracy = accuracy_score(y_test.to_numpy(), y_pred)
-print(accuracy)
+
+with mlflow.start_run(experiment_id=experiment.experiment_id):
+    # defina los parámetros del modelo
+    n_estimators = 200 
+    max_depth = 6
+    max_features = 4
+    # Cree el modelo con los parámetros definidos y entrénelo
+    rf = MultiOutputClassifier(RandomForestClassifier(n_estimators = n_estimators, max_depth = max_depth, max_features = max_features))
+    rf.fit(X_train_resampled, y_train_resampled)
+
+    # Realice predicciones de prueba
+    y_pred = rf.predict(X_test.to_numpy())
+  
+    # Registre los parámetros
+    mlflow.log_param("num_trees", n_estimators)
+    mlflow.log_param("maxdepth", max_depth)
+    mlflow.log_param("max_feat", max_features)
+  
+    # Registre el modelo
+    mlflow.sklearn.log_model(rf, "random-forest-model")
+  
+    # Cree y registre la métrica de interés
+    accuracy = accuracy_score(y_test.to_numpy(), y_pred)
+
+    mlflow.log_metric("accuracy", accuracy)
+    print(accuracy)
