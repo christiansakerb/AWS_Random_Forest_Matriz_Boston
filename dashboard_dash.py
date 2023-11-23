@@ -17,7 +17,7 @@ app.layout = html.Div([
     html.Div([
     html.P("Selecciona aquí la clasificación que quieres ver:",
            style={'textAlign': 'center', 'margin-bottom': '10px'}),
-    dcc.Dropdown(df.CALIFICACION.unique(), 
+    dcc.Dropdown(list(df['CALIFICACION'].unique()), 
                  'ESTRELLA', 
                  id='dropdown-selection',
                  style={'width': '50%'}),
@@ -50,10 +50,13 @@ app.layout = html.Div([
     Input('dropdown-selection_2', 'value')
 )
 def update_graph(value,value_2):
-    dff = df[df['CALIFICACION']==value].groupby('Semana de Fecha').sum().reset_index()
+    if value =='':
+        dff = df
+    else:
+        dff = df[df['CALIFICACION']==value]
     df_clasificacion = df.groupby('CALIFICACION').sum().reset_index()
-    df_productos = df.groupby('CODIGO').sum().reset_index().sort_values(by=value_2)
-    df_meses = df.groupby('FECHA_ASIGNADO').sum().reset_index().sort_values(by='FECHA_ASIGNADO')
+    df_productos = dff.groupby('CODIGO').sum().reset_index().sort_values(by=value_2)
+    df_meses = dff.groupby('FECHA_ASIGNADO').sum().reset_index().sort_values(by='FECHA_ASIGNADO')
 
     figure1 = px.pie(df_clasificacion, names='CALIFICACION', values=value_2, title='Distribución de Calificaciones')
     figure2 = px.bar(df_productos.head(15), x=value_2, y='CODIGO',orientation='h', text=value_2,title='Ventas por Producto')
