@@ -12,6 +12,8 @@ app = Dash(__name__)
 #Graph es un grafico, en este caso cambiante según callback
 app.layout = html.Div([
     html.H1(children='Dashboard Ciclo de Vida de Productos', style={'textAlign':'center'}),
+    html.H2(children='Filtros', style={'textAlign':'center'}),
+    html.Hr(),
     html.Div([
     html.P("Selecciona aquí la clasificación que quieres ver:",
            style={'textAlign': 'center', 'margin-bottom': '10px'}),
@@ -26,11 +28,14 @@ app.layout = html.Div([
                  id='dropdown-selection_2',
                  style={'width': '50%'})
     ],style={'display': 'flex'}),
+    html.H2(children='Gráficos', style={'textAlign':'center'}),
      html.Div([
         dcc.Graph(id='graph-content1',style={'width': '33.33%'}),
         dcc.Graph(id='graph-content2',style={'width': '33.33%'}),
         dcc.Graph(id='graph-content3',style={'width': '33.33%'})
     ], style={'display': 'flex'}),
+    html.H2(children='Tabla de detalle por Productos', style={'textAlign':'center'}),
+    html.Hr(),
     dash_table.DataTable(data=df.to_dict('records'), page_size=10)
 
 ])
@@ -52,7 +57,7 @@ def update_graph(value,value_2):
 
     figure1 = px.pie(df_clasificacion, names='CALIFICACION', values=value_2, title='Distribución de Calificaciones')
     figure2 = px.bar(df_productos.head(15), x=value_2, y='CODIGO',orientation='h', text=value_2,title='Ventas por Producto')
-    figure3 = px.bar(df_meses, x='FECHA_ASIGNADO', y=value_2, title='Datos por meses')
+    figure3 = px.bar(df_meses, x='FECHA_ASIGNADO', y=value_2,text=value_2, title='Datos por meses')
     return figure1,figure2,figure3
 
 if __name__ == '__main__':
