@@ -12,10 +12,24 @@ app = Dash(__name__)
 #Graph es un grafico, en este caso cambiante según callback
 app.layout = html.Div([
     html.H1(children='Dashboard Ciclo de Vida de Productos', style={'textAlign':'center'}),
-    dcc.Dropdown(df.CALIFICACION.unique(), 'ESTRELLA', id='dropdown-selection'),
+    html.Div([
+    html.P("Selecciona aquí la clasificación que quieres ver:",
+           style={'textAlign': 'center', 'margin-bottom': '10px'}),
+    dcc.Dropdown(df.CALIFICACION.unique(), 
+                 'ESTRELLA', 
+                 id='dropdown-selection',
+                 style={'width': '50%'}),
+    html.P("Selecciona aquí la Métrica que quieres analizar:",
+           style={'textAlign': 'center', 'margin-bottom': '10px'}),
+    dcc.Dropdown(['CONTRIBUCION','ORDENES DE PEDIDO','UNIDADES VENDIDAS'], 
+                 'CONTRIBUCION', 
+                 id='dropdown-selection_2',
+                 style={'width': '50%'})
+    ],style={'display': 'flex'}),
      html.Div([
-        dcc.Graph(id='graph-content1'),
-        dcc.Graph(id='graph-content2'),
+        dcc.Graph(id='graph-content1',style={'width': '33.33%'}),
+        dcc.Graph(id='graph-content2',style={'width': '33.33%'}),
+        dcc.Graph(id='graph-content3',style={'width': '33.33%'})
     ], style={'display': 'flex'}),
     dash_table.DataTable(data=df.to_dict('records'), page_size=10)
 
@@ -24,16 +38,22 @@ app.layout = html.Div([
 #La función actualizará update_graph cuando cambie dropdown-selection
 #Retornará un gráfico que se llamará graph-content
 @callback(
-    Output('graph-content', 'figure'),
-    Input('dropdown-selection', 'value')
+    Output('graph-content1', 'figure'),
+    Output('graph-content2', 'figure'),
+    Output('graph-content3', 'figure'),
+    Input('dropdown-selection', 'value'),
+    Input('dropdown-selection_2', 'value')
 )
-def update_graph(value):
-    dff = df[df.CALIFICACION==value].groupby('Semana de Fecha').sum().reset_index()
-    
-    figure1 = px.line(dff, x='Semana de Fecha', y='CONTRIBUCION', title='Graph 1')
-    figure2 = px.line(dff, x='Semana de Fecha', y='CONTRIBUCION', title='Graph 2')
+def update_graph(value,value_2):
+    dff = df[df['CALIFICACION']==value].groupby('Semana de Fecha').sum().reset_index()
+    df_clasificacion = df.groupby('CALIFICACION').sum().reset_index()
+    df_productos = df.groupby('CODIGO').sum().reset_index().sort_values(by=value_2)
+    df_meses = df.groupby('FECHA_ASIGNADO').sum().reset_index().sort_values(by='FECHA_ASIGNADO')
 
-    return px.line(dff, x='Semana de Fecha', y='CONTRIBUCION')
+    figure1 = px.pie(df_clasificacion, names='CALIFICACION', values=value_2, title='Distribución de Calificaciones')
+    figure2 = px.bar(df_productos.head(15), x=value_2, y='CODIGO',orientation='h', text=value_2,title='Ventas por Producto')
+    figure3 = px.bar(df_meses, x='FECHA_ASIGNADO', y=value_2, title='Datos por meses')
+    return figure1,figure2,figure3
 
 if __name__ == '__main__':
     app.run(debug=True)
