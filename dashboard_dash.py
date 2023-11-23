@@ -1,4 +1,4 @@
-from dash import Dash, html, dcc, callback, Output, Input
+from dash import Dash, html, dcc, callback, Output, Input,dash_table
 import plotly.express as px
 import pandas as pd
 
@@ -13,7 +13,12 @@ app = Dash(__name__)
 app.layout = html.Div([
     html.H1(children='Dashboard Ciclo de Vida de Productos', style={'textAlign':'center'}),
     dcc.Dropdown(df.CALIFICACION.unique(), 'ESTRELLA', id='dropdown-selection'),
-    dcc.Graph(id='graph-content')
+     html.Div([
+        dcc.Graph(id='graph-content1'),
+        dcc.Graph(id='graph-content2'),
+    ], style={'display': 'flex'}),
+    dash_table.DataTable(data=df.to_dict('records'), page_size=10)
+
 ])
 
 #La función actualizará update_graph cuando cambie dropdown-selection
@@ -23,7 +28,11 @@ app.layout = html.Div([
     Input('dropdown-selection', 'value')
 )
 def update_graph(value):
-    dff = df[df.CALIFICACION==value]
+    dff = df[df.CALIFICACION==value].groupby('Semana de Fecha').sum().reset_index()
+    
+    figure1 = px.line(dff, x='Semana de Fecha', y='CONTRIBUCION', title='Graph 1')
+    figure2 = px.line(dff, x='Semana de Fecha', y='CONTRIBUCION', title='Graph 2')
+
     return px.line(dff, x='Semana de Fecha', y='CONTRIBUCION')
 
 if __name__ == '__main__':
