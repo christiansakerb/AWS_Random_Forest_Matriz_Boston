@@ -21,8 +21,8 @@ class AppConfig(BaseModel):
 
     package_name: str
     #data_file: str
-    train_data_file: str
-    test_data_file: str
+    data_train_test: str
+    data_tablero: str
     pipeline_save_file: str
 
 
@@ -32,17 +32,12 @@ class ModelConfig(BaseModel):
     training and feature engineering.
     """
 
-    target: str
+    target: List[str] #Cambio a lista porque son varias
     features: List[str]
     test_size: float
     random_state: int
     n_estimators: int
-    max_depth: int
-    temp_features: List[str]
-    qual_vars: List[str]
-    categorical_vars: Sequence[str]
-    qual_mappings: Dict[str, int]
-
+    max_features: int
 
 class Config(BaseModel):
     """Master config object."""
