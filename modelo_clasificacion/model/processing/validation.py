@@ -6,7 +6,7 @@ from pydantic import BaseModel, ValidationError
 
 from model.config.core import config
 
-
+#PENDIENTE
 def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
     """Check model inputs for na values and filter."""
     validated_data = input_data.copy()
@@ -18,11 +18,12 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
     validated_data.dropna(subset=new_vars_with_na, inplace=True)
 
     return validated_data
+#
 
-
+#REVISION
 def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
     """Check model inputs for unprocessable values."""
-
+    
     relevant_data = input_data[config.model_config.features].copy()
     validated_data = drop_na_inputs(input_data=relevant_data)
     errors = None
@@ -36,7 +37,7 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
         errors = error.json()
 
     return validated_data, errors
-
+#
 
 class DataInputSchema(BaseModel):
     Customer_Age: Optional[int]

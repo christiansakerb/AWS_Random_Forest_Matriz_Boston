@@ -13,19 +13,26 @@ target:
   - CALIFICACION_INTERROGANTE
   - CALIFICACION_PROTECTOR
 
+#Mis variables:
 features:
-  - Customer_Age
-  - Total_Amt_Chng_Q4_Q1
-  - Total_Relationship_Count
-  - Total_Revolving_Bal
-  - Total_Ct_Chng_Q4_Q1
-  - Total_Trans_Ct
-  - Total_Trans_Amt
-  - Months_Inactive_12_mon
-  - Contacts_Count_12_mon
+  - FECHA ASIGNADO
+  - Semana de Fecha
+  - CONTRIBUCION
+  - ORDENES DE PEDIDO
+  - UNIDADES VENDIDAS
+  - CONTRIBUCION-2
+  - ORDENES DE PEDIDO-2
+  - UNIDADES VENDIDAS-2
+  - CONTRIBUCION-3
+  - ORDENES DE PEDIDO-3
+  - UNIDADES VENDIDAS-3
+  - CATEGORIA
+  - LINEA
+  - CALIFICACION
 
 # pipelines
 pipeline_name: modelo-abandono
+#Como se llama el archivo que guarda el modelo
 pipeline_save_file: joblib-modelo-matriz
 
 # fracción del conjunto de prueba
