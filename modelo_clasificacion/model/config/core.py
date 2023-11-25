@@ -22,6 +22,7 @@ class AppConfig(BaseModel):
     package_name: str
     #data_file: str
     data_train_test: str
+    test_data_file: str
     data_tablero: str
     pipeline_save_file: str
 

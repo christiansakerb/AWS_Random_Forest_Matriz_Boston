@@ -2,7 +2,7 @@ import numpy as np
 from config.core import config
 import pandas as pd
 from pipeline import matriz_pipeline
-import SMOTE
+from imblearn.over_sampling import SMOTE
 from processing.data_manager import load_dataset, save_pipeline
 from sklearn.model_selection import train_test_split
 
@@ -11,7 +11,7 @@ def run_training() -> None:
     """Train the model."""
     
     # read training data
-    Ventas_Procesadas = load_dataset(file_name=config.app_config.train_data_file)
+    Ventas_Procesadas = load_dataset(file_name=config.app_config.data_train_test)
 
     Ventas_Procesadas['Semana de Fecha'] = Ventas_Procesadas['Semana de Fecha'].apply(lambda x: int(x[-2:]))
     Ventas_Procesadas = Ventas_Procesadas.sort_values(by='Semana de Fecha',ascending=True)
@@ -43,7 +43,7 @@ def run_training() -> None:
     X_train_resampled, y_train_resampled = smote.fit_resample(X_train.to_numpy(), y_train.to_numpy())
 
     # fit model
-    matriz_pipeline.fit(X_train_resampled, y_train_resampled,config.model_config.random_state)
+    matriz_pipeline.fit(X_train_resampled, y_train_resampled,random_state = config.model_config.random_state)
 
     # persist trained model
     save_pipeline(pipeline_to_persist=matriz_pipeline)

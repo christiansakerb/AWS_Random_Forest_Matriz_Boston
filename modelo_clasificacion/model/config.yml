@@ -4,6 +4,7 @@ package_name: modelo-clasificacion-cuadrante
 # Archivos de datos
 data_train_test: Data.xlsx
 data_tablero: Archivo_para_tabler.csv
+test_data_file: Set_test.csv
 
 # Variables
 # Objetivo
@@ -13,22 +14,41 @@ target:
   - CALIFICACION_INTERROGANTE
   - CALIFICACION_PROTECTOR
 
-#Mis variables:
+#Mis variables usadas para predecir..:
 features:
-  - FECHA ASIGNADO
-  - Semana de Fecha
-  - CONTRIBUCION
-  - ORDENES DE PEDIDO
-  - UNIDADES VENDIDAS
-  - CONTRIBUCION-2
-  - ORDENES DE PEDIDO-2
-  - UNIDADES VENDIDAS-2
-  - CONTRIBUCION-3
-  - ORDENES DE PEDIDO-3
-  - UNIDADES VENDIDAS-3
-  - CATEGORIA
-  - LINEA
-  - CALIFICACION
+- 'Semana de Fecha'
+- 'CONTRIBUCION'
+- 'ORDENES DE PEDIDO'
+- 'UNIDADES VENDIDAS'
+- 'CONTRIBUCION-2'
+- 'ORDENES DE PEDIDO-2'
+- 'UNIDADES VENDIDAS-2'
+- 'CONTRIBUCION-3'
+- 'ORDENES DE PEDIDO-3'
+- 'UNIDADES VENDIDAS-3'
+- 'FECHA ASIGNADO_2023-08'
+- 'FECHA ASIGNADO_2023-09'
+- 'FECHA ASIGNADO_2023-10'
+- 'FECHA ASIGNADO_2023-11'
+- 'CATEGORIA_C2'
+- 'CATEGORIA_C3'
+- 'LINEA_S10'
+- 'LINEA_S11'
+- 'LINEA_S12'
+- 'LINEA_S13'
+- 'LINEA_S14'
+- 'LINEA_S15'
+- 'LINEA_S16'
+- 'LINEA_S17'
+- 'LINEA_S2'
+- 'LINEA_S3'
+- 'LINEA_S4'
+- 'LINEA_S5'
+- 'LINEA_S6'
+- 'LINEA_S7'
+- 'LINEA_S8'
+- 'LINEA_S9'
+
 
 # pipelines
 pipeline_name: modelo-abandono

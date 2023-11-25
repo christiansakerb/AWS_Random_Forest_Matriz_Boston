@@ -26,7 +26,7 @@ def make_prediction(
 
     if not errors:
         predictions = modelo_matriz_clasif.predict(
-            X=validated_data[config.model_config.features]
+            validated_data[config.model_config.features]
         )
         results = {
             "predictions": [pred for pred in predictions], 
