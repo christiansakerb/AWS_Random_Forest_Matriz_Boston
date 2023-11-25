@@ -31,8 +31,8 @@ class ModelConfig(BaseModel):
     All configuration relevant to model
     training and feature engineering.
     """
-
-    target: List[str] #Cambio a lista porque son varias
+    #Cambio a lista porque son varias
+    target: List[str] 
     features: List[str]
     test_size: float
     random_state: int

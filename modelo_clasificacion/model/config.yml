@@ -26,7 +26,7 @@ features:
 
 # pipelines
 pipeline_name: modelo-abandono
-pipeline_save_file: modelo-abandono-output
+pipeline_save_file: joblib-modelo-matriz
 
 # fracción del conjunto de prueba
 test_size: 0.2
