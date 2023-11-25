@@ -37,6 +37,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
 
 #Hasta aquí está ajustada
 
+#### ESTA FUNCIÓN SE LLAMA EN ????????????????????
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     """Persist the pipeline.
     Saves the versioned model, and overwrites any previous
@@ -55,6 +56,7 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     joblib.dump(pipeline_to_persist, save_path)
 
 
+#### ESTA FUNCIÓN SE LLAMA EN **PREDICT.py**
 def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
 
@@ -62,7 +64,7 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     trained_model = joblib.load(filename=file_path)
     return trained_model
 
-
+#### ESTA FUNCIÓN SE LLAMA AQUI EN SAVE_PIPELINE
 def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:
     """
     Remove old model pipelines.
