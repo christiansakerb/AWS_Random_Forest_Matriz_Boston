@@ -6,7 +6,7 @@ import pandas as pd
 from model import __version__ as _version #OK 
 from model.config.core import config #OK - 80%
 from model.processing.data_manager import load_pipeline #OK
-from model.processing.data_processing import transforming_data #PENDIENTE
+from model.processing.data_processing import validate_inputs #PENDIENTE
 
 #Este paso carga el archivo de joblib .pkl almacenado despues del entrenamiento
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
@@ -21,7 +21,7 @@ def make_prediction(
 
     data = pd.DataFrame(input_data)
     #Validate_inputs revisa que la información esté en el formato correcto
-    validated_data, errors = transforming_data(input_data=data)
+    validated_data, errors = validate_inputs(input_data=data)
     results = {"predictions": None, "version": _version, "errors": errors}
 
     if not errors:
