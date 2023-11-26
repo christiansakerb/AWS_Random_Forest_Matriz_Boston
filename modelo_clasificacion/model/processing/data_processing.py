@@ -39,8 +39,6 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
             input_data[col] = 0
     input_data = input_data[config.app_config.features]
 
-
-    print(input_data,input_data.columns)
     errors = None
 
     return input_data,errors
@@ -48,10 +46,3 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 #aqui se debe revisar si hay un problema con las comillas..
 
 
-validate_inputs(input_data = 
-                pd.DataFrame({'CODIGO':['X548'],
-                              'FECHA ASIGNADO':['2023-11'],
-                              'Semana de Fecha':[24],
-                              'CONTRIBUCION':[0.8],
-                              'ORDENES DE PEDIDO':[1],
-                              'UNIDADES VENDIDAS':[1]}))
