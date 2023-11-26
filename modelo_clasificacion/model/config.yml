@@ -1,67 +1,48 @@
-# Nombre del paquete
-package_name: modelo-clasificacion-cuadrante
-
-# Archivos de datos
-data_train_test: Data.xlsx
-data_tablero: Archivo_para_tabler.csv
-test_data_file: Set_test.csv
-
-# Variables
-# Objetivo
-target:
-  - CALIFICACION_ESTRELLA
-  - CALIFICACION_IMAGEN
-  - CALIFICACION_INTERROGANTE
-  - CALIFICACION_PROTECTOR
-
-#Mis variables usadas para predecir..:
-features:
-- 'Semana de Fecha'
-- 'CONTRIBUCION'
-- 'ORDENES DE PEDIDO'
-- 'UNIDADES VENDIDAS'
-- 'CONTRIBUCION-2'
-- 'ORDENES DE PEDIDO-2'
-- 'UNIDADES VENDIDAS-2'
-- 'CONTRIBUCION-3'
-- 'ORDENES DE PEDIDO-3'
-- 'UNIDADES VENDIDAS-3'
-- 'FECHA ASIGNADO_2023-08'
-- 'FECHA ASIGNADO_2023-09'
-- 'FECHA ASIGNADO_2023-10'
-- 'FECHA ASIGNADO_2023-11'
-- 'CATEGORIA_C2'
-- 'CATEGORIA_C3'
-- 'LINEA_S10'
-- 'LINEA_S11'
-- 'LINEA_S12'
-- 'LINEA_S13'
-- 'LINEA_S14'
-- 'LINEA_S15'
-- 'LINEA_S16'
-- 'LINEA_S17'
-- 'LINEA_S2'
-- 'LINEA_S3'
-- 'LINEA_S4'
-- 'LINEA_S5'
-- 'LINEA_S6'
-- 'LINEA_S7'
-- 'LINEA_S8'
-- 'LINEA_S9'
-
-
-# pipelines
-pipeline_name: modelo-abandono
-#Como se llama el archivo que guarda el modelo
-pipeline_save_file: joblib-modelo-matriz
-
-# fracción del conjunto de prueba
+package_name: 'modelo-clasificacion-cuadrante'
+data_train_test: 'Data.xlsx'
+test_data_file: 'Set_test.csv'
+data_tablero: 'Archivo_para_tabler.csv'
+pipeline_save_file: 'joblib-modelo-matriz'
 test_size: 0.2
-
-# semilla
 random_state: 42
-
-# hiperparámetros del modelo 
 n_estimators: 150
-
 max_features: 10
+
+target:
+  - 'CALIFICACION_ESTRELLA'
+  - 'CALIFICACION_IMAGEN'
+  - 'CALIFICACION_INTERROGANTE'
+  - 'CALIFICACION_PROTECTOR'
+features:
+  - 'Semana de Fecha'
+  - 'CONTRIBUCION'
+  - 'ORDENES DE PEDIDO'
+  - 'UNIDADES VENDIDAS'
+  - 'CONTRIBUCION-2'
+  - 'ORDENES DE PEDIDO-2'
+  - 'UNIDADES VENDIDAS-2'
+  - 'CONTRIBUCION-3'
+  - 'ORDENES DE PEDIDO-3'
+  - 'UNIDADES VENDIDAS-3'
+  - 'FECHA ASIGNADO_2023-08'
+  - 'FECHA ASIGNADO_2023-09'
+  - 'FECHA ASIGNADO_2023-10'
+  - 'FECHA ASIGNADO_2023-11'
+  - 'CATEGORIA_C2'
+  - 'CATEGORIA_C3'
+  - 'LINEA_S10'
+  - 'LINEA_S11'
+  - 'LINEA_S12'
+  - 'LINEA_S13'
+  - 'LINEA_S14'
+  - 'LINEA_S15'
+  - 'LINEA_S16'
+  - 'LINEA_S17'
+  - 'LINEA_S2'
+  - 'LINEA_S3'
+  - 'LINEA_S4'
+  - 'LINEA_S5'
+  - 'LINEA_S6'
+  - 'LINEA_S7'
+  - 'LINEA_S8'
+  - 'LINEA_S9'

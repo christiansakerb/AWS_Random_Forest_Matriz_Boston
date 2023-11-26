@@ -32,18 +32,18 @@ def run_training() -> None:
     Ventas_Procesadas = pd.get_dummies(Ventas_Procesadas,columns=['FECHA ASIGNADO','CATEGORIA','LINEA'],drop_first=True,dtype=float)
     Ventas_Procesadas = pd.get_dummies(Ventas_Procesadas,columns=['CALIFICACION'],dtype=float)
 
-    X =Ventas_Procesadas[config.model_config.features]
-    y = Ventas_Procesadas[config.model_config.target]
+    X =Ventas_Procesadas[config.app_config.features]
+    y = Ventas_Procesadas[config.app_config.target]
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=config.model_config.test_size, random_state=42)
-
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=config.app_config.test_size, random_state=42)
+    
     sm = SMOTE()  #Smote con parámetros por default
     smote = SMOTE(random_state=42)
 
     X_train_resampled, y_train_resampled = smote.fit_resample(X_train.to_numpy(), y_train.to_numpy())
 
     # fit model
-    matriz_pipeline.fit(X_train_resampled, y_train_resampled,random_state = config.model_config.random_state)
+    matriz_pipeline.fit(X_train_resampled, y_train_resampled)
 
     # persist trained model
     save_pipeline(pipeline_to_persist=matriz_pipeline)

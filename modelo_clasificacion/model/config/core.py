@@ -3,6 +3,7 @@ from typing import Dict, List, Optional, Sequence
 
 from pydantic import BaseModel
 from strictyaml import YAML, load
+import yaml
 
 import model
 
@@ -20,11 +21,16 @@ class AppConfig(BaseModel):
     """
 
     package_name: str
-    #data_file: str
     data_train_test: str
     test_data_file: str
     data_tablero: str
     pipeline_save_file: str
+    test_size: float
+    random_state: int
+    n_estimators: int
+    max_features: int
+    target: List[str]
+    features: List[str]
 
 
 class ModelConfig(BaseModel):
@@ -32,17 +38,18 @@ class ModelConfig(BaseModel):
     All configuration relevant to model
     training and feature engineering.
     """
-    #Cambio a lista porque son varias
-    target: List[str] 
-    features: List[str]
+
     test_size: float
     random_state: int
     n_estimators: int
     max_features: int
+    target: List[str]
+    features: List[str]
+    
+
 
 class Config(BaseModel):
     """Master config object."""
-
     app_config: AppConfig
     model_config: ModelConfig
 
@@ -76,9 +83,9 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
     _config = Config(
         app_config=AppConfig(**parsed_config.data),
         model_config=ModelConfig(**parsed_config.data),
-    )
-
+    ) 
+    
     return _config
-
+   
 
 config = create_and_validate_config()

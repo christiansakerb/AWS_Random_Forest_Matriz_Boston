@@ -1,3 +1,16 @@
 3.84.199.47
-scp -i llave .pem bankchurn -api.zip ubuntu@IP :/ home / ubuntu
-ssh -i llave.pem ubuntu@ip
+cd C:\Users\csake\OneDrive\Documentos\Maestria Clases\S3 C2 Despliegue de Soluciones Analíticas\Proyecto
+scp -i Nuevo_Par.pem modelo_clasificacion.zip ubuntu@3.95.237.2:/home/ubuntu
+ssh -i Nuevo_Par.pem ubuntu@3.95.237.2
+
+Para que encuentre .model
+MV
+cd ~/modelo_clasificacion
+Windows
+set PYTHONPATH=C:\Users\csake\OneDrive\Documentos\Maestria Clases\S3 C2 Despliegue de Soluciones Analíticas\Proyecto\modelo_clasificacion;%PYTHONPATH%
+
+Instalaciones :
+sudo apt install unzip
+
+runners:
+unzip modelo_clasificacion.zip 
