@@ -3,6 +3,8 @@ data_train_test: 'Data.xlsx'
 test_data_file: 'Set_test.csv'
 data_tablero: 'Archivo_para_tabler.csv'
 pipeline_save_file: 'joblib-modelo-matriz'
+pipeline_save_file_dict: 'dict_transf_semanas'
+
 test_size: 0.2
 random_state: 42
 n_estimators: 150

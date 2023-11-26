@@ -31,7 +31,7 @@ class AppConfig(BaseModel):
     max_features: int
     target: List[str]
     features: List[str]
-
+    pipeline_save_file_dict: str
 
 class ModelConfig(BaseModel):
     """

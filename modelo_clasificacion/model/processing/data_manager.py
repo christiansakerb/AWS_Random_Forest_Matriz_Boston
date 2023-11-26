@@ -38,7 +38,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
 #Hasta aquí está ajustada
 
 #### ESTA FUNCIÓN SE LLAMA EN ????????????????????
-def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
+def save_pipeline(*, pipeline_to_persist: Pipeline,ruta=config.app_config.pipeline_save_file) -> None:
     """Persist the pipeline.
     Saves the versioned model, and overwrites any previous
     saved models. This ensures that when the package is
@@ -49,10 +49,10 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     # Prepare versioned save file name
 
     #Guardamos el nombre que llevará el modelo en joblib
-    save_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
+    save_file_name = f"{ruta}{_version}.pkl"
     save_path = TRAINED_MODEL_DIR / save_file_name
 
-    remove_old_pipelines(files_to_keep=[save_file_name])
+    #remove_old_pipelines(files_to_keep=[save_file_name])
     joblib.dump(pipeline_to_persist, save_path)
 
 

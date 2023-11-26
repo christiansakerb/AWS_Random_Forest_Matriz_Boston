@@ -10,3 +10,4 @@ dash==2.14.0
 plotly==5.9.0
 strictyaml>=1.7.0,<2.0.0
 feature-engine>=1.6.1,<2.0.0
+openpyxl

@@ -26,7 +26,8 @@ def run_training() -> None:
         for indice in Semana_nueva:
             Diccionario_semanas_transformacion[Semanas[indice]]=Semana_nueva[indice]+1
     Ventas_Procesadas['Semana de Fecha'] = Ventas_Procesadas['Semana de Fecha'].apply(lambda x: Diccionario_semanas_transformacion[x])
-
+    #Guardamos el diccionario de semanas:
+    
     Ventas_Procesadas = Ventas_Procesadas.dropna()
 
     Ventas_Procesadas = pd.get_dummies(Ventas_Procesadas,columns=['FECHA ASIGNADO','CATEGORIA','LINEA'],drop_first=True,dtype=float)
@@ -47,6 +48,7 @@ def run_training() -> None:
 
     # persist trained model
     save_pipeline(pipeline_to_persist=matriz_pipeline)
+    save_pipeline(pipeline_to_persist=Diccionario_semanas_transformacion,ruta = config.app_config.pipeline_save_file_dict)
 
 
 if __name__ == "__main__":
