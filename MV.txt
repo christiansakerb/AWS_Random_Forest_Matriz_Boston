@@ -1,16 +1,27 @@
 3.84.199.47
 cd C:\Users\csake\OneDrive\Documentos\Maestria Clases\S3 C2 Despliegue de Soluciones Analíticas\Proyecto
-scp -i Nuevo_Par.pem modelo_clasificacion.zip ubuntu@3.95.237.2:/home/ubuntu
-ssh -i Nuevo_Par.pem ubuntu@3.95.237.2
+scp -i Nuevo_Par.pem modelo_clasificacion.zip ubuntu@18.206.146.98:/home/ubuntu
+ssh -i Nuevo_Par.pem ubuntu@18.206.146.98
+
+scp -i Nuevo_Par.pem ubuntu@18.206.146.98:/home/ubuntu/modelo_clasificacion/dist/model_Predicci_n_Clasificaci_n_de_Productos-0.0.1-py3-none-any.whl .
 
 Para que encuentre .model
-MV
 cd ~/modelo_clasificacion
-Windows
-set PYTHONPATH=C:\Users\csake\OneDrive\Documentos\Maestria Clases\S3 C2 Despliegue de Soluciones Analíticas\Proyecto\modelo_clasificacion;%PYTHONPATH%
+
 
 Instalaciones :
 sudo apt install unzip
+Creados por build:
+model-Predicción-Clasificación-de-Productos-0.0.1.tar.gz
+model_Predicci_n_Clasificaci_n_de_Productos-0.0.1-py3-none-any.whl
 
 runners:
 unzip modelo_clasificacion.zip 
+
+Input_var:
+CODIGO
+FECHA ASIGNADO
+Semana de Fecha
+CONTRIBUCION
+ORDENES DE PEDIDO
+UNIDADES VENDIDAS
