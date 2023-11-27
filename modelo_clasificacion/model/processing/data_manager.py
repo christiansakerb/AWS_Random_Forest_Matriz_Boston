@@ -19,6 +19,11 @@ from model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 
 ######ESTA FUNCIÓN SE LLAMA EN ??????????
+
+def load_dataset_test(*, file_name: str) -> pd.DataFrame:
+    test = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
+    return test
+
 def load_dataset(*, file_name: str) -> pd.DataFrame:
     #El cambio aquí corresponnde a que son 3 cargas, tal como está en notebook.
     

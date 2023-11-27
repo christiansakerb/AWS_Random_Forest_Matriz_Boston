@@ -5,7 +5,7 @@ from model.predict import make_prediction
 
 def test_make_prediction(sample_input_data):
     # Given
-
+    print('holaa')
     # When
     result = make_prediction(input_data=sample_input_data)
 

@@ -22,9 +22,14 @@ def make_prediction(
 
     data = pd.DataFrame(input_data)
     #Validate_inputs revisa que la información esté en el formato correcto
-    validated_data, errors = validate_inputs(input_data=data)
+    #En caso que lo que se pase ya sea un df procesado
+    if data.columns == config.app_config.target:
+        validated_data = data
+        errors = None
+    else:
+        validated_data, errors = validate_inputs(input_data=data)
+    
     results = {"predictions": None, "version": _version, "errors": errors}
-
 
     if not errors:
         predictions = modelo_matriz_clasif.predict(
