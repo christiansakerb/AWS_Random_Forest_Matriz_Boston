@@ -1,4 +1,4 @@
-./model-pkg/model_abandono-0.0.1-py3-none-any.whl
+./model-pkg/model_Predicci_n_Clasificaci_n_de_Productos-0.0.1-py3-none-any.whl
 uvicorn>=0.20.0,<0.30.0
 fastapi>=0.88.0,<1.0.0
 python-multipart>=0.0.5,<0.1.0
