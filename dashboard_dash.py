@@ -12,33 +12,36 @@ app = Dash(__name__)
 #Graph es un grafico, en este caso cambiante según callback
 app.layout = html.Div([
     html.H1(children='Dashboard Ciclo de Vida de Productos', style={'textAlign':'center'}),
-    html.H2(children='Filtros', style={'textAlign':'center'}),
     html.Hr(),
-    html.Div([
-    html.P("Selecciona aquí la clasificación que quieres ver:",
-           style={'textAlign': 'center', 'margin-bottom': '10px'}),
+    html.H2(children='Filtros', style={'textAlign':'center'}),
+    html.Div([   
+    html.P("clasificación:    ",
+           style={'textAlign': 'center', 'margin-bottom': '5px'}),       
     dcc.Dropdown(list(df['CALIFICACION'].unique()), 
                  'ESTRELLA', 
                  id='dropdown-selection',
                  style={'width': '50%'}),
-    html.P("Selecciona aquí la Métrica que quieres analizar:",
+    html.P("Métrica  :",
            style={'textAlign': 'center', 'margin-bottom': '10px'}),
     dcc.Dropdown(['CONTRIBUCION','ORDENES DE PEDIDO','UNIDADES VENDIDAS'], 
                  'CONTRIBUCION', 
                  id='dropdown-selection_2',
                  style={'width': '50%'})
     ],style={'display': 'flex'}),
+    html.Hr(),
     html.H2(children='Gráficos', style={'textAlign':'center'}),
      html.Div([
         dcc.Graph(id='graph-content1',style={'width': '33.33%'}),
         dcc.Graph(id='graph-content2',style={'width': '33.33%'}),
         dcc.Graph(id='graph-content3',style={'width': '33.33%'})
     ], style={'display': 'flex'}),
+    html.Hr(),
     html.H2(children='Tabla de detalle por Productos', style={'textAlign':'center'}),
     html.Hr(),
     dash_table.DataTable(data=df.to_dict('records'), page_size=10)
 
-])
+], style={'backgroundColor': 'lightblue', 'font-family': "Times New Roman"})  # Cambia el color de fondo de la página web
+
 
 #La función actualizará update_graph cuando cambie dropdown-selection
 #Retornará un gráfico que se llamará graph-content
