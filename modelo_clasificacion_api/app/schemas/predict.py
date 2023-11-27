@@ -1,19 +1,18 @@
 from typing import Any, List, Optional
 from pydantic import BaseModel
+from model.processing.validation import DataInputSchema
 
 # Esquema de los resultados de predicción
 class PredictionResults(BaseModel):
     errors: Optional[Any]
     version: str
-    predictions: Optional[List[float]]
+    predictions: Optional[List[str]]
 
 # Esquema para inputs múltiples
 class MultipleDataInputs(BaseModel):
-    CODIGO: Optional[str]
-    FECHA_ASIGNADO: Optional[str]
-    Semana_de_Fecha: Optional[int]
-    CONTRIBUCION: Optional[float]
-    ORDENES_DE_PEDIDO: Optional[float]
+    inputs: List[DataInputSchema]
+
+
         
     class Config:
         schema_extra = {
@@ -21,11 +20,11 @@ class MultipleDataInputs(BaseModel):
                 "inputs": [
                     {
                         "CODIGO": "X712",
-                        "FECHA ASIGNADO": "2023-10",
-                        "Semana de Fecha": 30,
+                        "FECHA_ASIGNADO": "2023-10",
+                        "Semana_de_Fecha": 30,
                         "CONTRIBUCION": 0.103511,
-                        "ORDENES DE PEDIDO": 0.001848,
-                        "UNIDADES VENDIDAS": 0.004396
+                        "ORDENES_DE_PEDIDO": 0.001848,
+                        "UNIDADES_VENDIDAS": 0.004396
                     }
                 ]
             }

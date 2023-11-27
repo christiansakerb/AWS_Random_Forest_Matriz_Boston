@@ -12,7 +12,6 @@ from app.main import app
 @pytest.fixture(scope="module")
 def test_data() -> pd.DataFrame:
     return load_dataset_test(file_name=config.app_config.test_data_file)
-
 # Cliente de prueba
 @pytest.fixture()
 def client() -> Generator:

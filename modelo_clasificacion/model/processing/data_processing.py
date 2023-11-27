@@ -20,8 +20,14 @@ def Traer_ventas_anteriores(df):
 #REVISION
 def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
     """Check model inputs for unprocessable values."""
+    print('asi viene la data...')
+    print(input_data)
     input_data.set_index('CODIGO',inplace=True)
-    
+    print(input_data)
+    input_data = input_data.rename(columns={'FECHA_ASIGNADO':'FECHA ASIGNADO',
+                               'Semana_de_Fecha':'Semana de Fecha',
+                               'ORDENES_DE_PEDIDO':'ORDENES DE PEDIDO'})
+    print(input_data)
     #Colocamos datos anteriores
     input_data = Traer_ventas_anteriores(input_data)
 
@@ -44,5 +50,12 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
     return input_data,errors
 #
 #aqui se debe revisar si hay un problema con las comillas..
+
+#CODIGO: Optional[str]
+#FECHA_ASIGNADO: Optional[str]
+#Semana_de_Fecha: Optional[int]
+#CONTRIBUCION: Optional[float]
+#ORDENES_DE_PEDIDO: Optional[float]
+
 
 

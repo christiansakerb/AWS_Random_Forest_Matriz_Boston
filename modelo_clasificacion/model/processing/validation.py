@@ -38,17 +38,13 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 
     return validated_data, errors
 #
-
 class DataInputSchema(BaseModel):
-    Customer_Age: Optional[int]
-    Total_Amt_Chng_Q4_Q1: Optional[float]
-    Total_Relationship_Count: Optional[int]
-    Total_Revolving_Bal: Optional[float]
-    Total_Ct_Chng_Q4_Q1: Optional[float]
-    Total_Trans_Ct: Optional[float]
-    Total_Trans_Amt: Optional[float]
-    Months_Inactive_12_mon: Optional[int]
-    Contacts_Count_12_mon: Optional[int]
+    CODIGO: Optional[str]
+    FECHA_ASIGNADO: Optional[str]
+    Semana_de_Fecha: Optional[int]
+    CONTRIBUCION: Optional[float]
+    ORDENES_DE_PEDIDO: Optional[float]
+    UNIDADES_VENDIDAS: Optional[float]
 
 
 class MultipleDataInputs(BaseModel):
