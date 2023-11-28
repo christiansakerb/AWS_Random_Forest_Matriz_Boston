@@ -79,17 +79,17 @@ app.layout = html.Div([
 
             html.Div([
                 html.P("Codigo:",style={'textAlign': 'center','left': '100%'}),
-                dcc.Dropdown(list(df['CODIGO'].unique()), 'X429', id='dropdown-cod',style={'width': '100%'}),
+                dcc.Dropdown(list(df['CODIGO'].unique()), 'X429', id='dropdown-cod',style={'width': '100%','color':'black'}),
             ], style={'display': 'flex'}),
 
             html.Div([
                 html.P("Fecha para estimación:",style={'textAlign': 'left','width': '100%'}),
-                dcc.Dropdown(list(df['FECHA_ASIGNADO'].unique()), '2023-08', id='dropdown-fecha',style={'width': '100%'}),
+                dcc.Dropdown(list(df['FECHA_ASIGNADO'].unique()), '2023-08', id='dropdown-fecha',style={'width': '100%','color':'black'}),
             ], style={'display': 'flex'}),
 
             html.Div([
                 html.P("Semana en el año:",style={'textAlign': 'left','width': '100%'}),
-                dcc.Dropdown([23,24,25,26,27,28,29,30], 28, id='dropdown-semana',style={'width': '100%'}),
+                dcc.Dropdown([23,24,25,26,27,28,29,30], 28, id='dropdown-semana',style={'width': '100%','color':'black'}),
             ], style={'display': 'flex'}),
 
             html.Div([
@@ -109,7 +109,8 @@ app.layout = html.Div([
 
             html.Hr(),
             html.Button('Predecir Cuadrante Nuevo', id='calcular-btn', n_clicks=0,style={'width':'100%'}),
-            
+            html.Hr(),
+
             html.H6(html.Div(id='resultado'),style={'fontSize': 15})
             ], style={'backgroundColor': '#1EAEDB', 'color': 'white'}),
         ], style={'display': 'flex'})    

@@ -1,13 +1,14 @@
 3.84.199.47
+cd C:\Users\csake\OneDrive\Documentos\Maestria Clases\S3 C2 Despliegue de Soluciones Analíticas\Proyecto
 
-scp -i Nuevo_Par.pem ubuntu@54.144.113.246:/home/ubuntu/modelo_clasificacion/dist/model_Predicci_n_Clasificaci_n_de_Productos-0.0.1-py3-none-any.whl .
+scp -i Nuevo_Par.pem ubuntu@18.208.165.40:/home/ubuntu/modelo_clasificacion/dist/model_Predicci_n_Clasificaci_n_de_Productos-0.0.1-py3-none-any.whl .
 
 
 cd C:\Users\csake\OneDrive\Documentos\Maestria Clases\S3 C2 Despliegue de Soluciones Analíticas\Proyecto
-scp -i Nuevo_Par.pem modelo_clasificacion.zip ubuntu@54.144.113.246:/home/ubuntu
-scp -i Nuevo_Par.pem modelo_clasificacion_api.zip ubuntu@54.144.113.246:/home/ubuntu
+scp -i Nuevo_Par.pem modelo_clasificacion.zip ubuntu@18.208.165.40:/home/ubuntu
+scp -i Nuevo_Par.pem modelo_clasificacion_api.zip ubuntu@18.208.165.40:/home/ubuntu
 
-ssh -i Nuevo_Par.pem ubuntu@54.144.113.246
+ssh -i Nuevo_Par.pem ubuntu@18.208.165.40
 
 unzip modelo_clasificacion.zip 
 cd modelo_clasificacion
@@ -18,6 +19,7 @@ python3 -m build
 unzip modelo_clasificacion_api.zip 
 cd modelo_clasificacion_api
 tox run -e test_app
+tox run -e run
 
 
 
