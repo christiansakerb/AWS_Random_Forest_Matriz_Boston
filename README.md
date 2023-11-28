@@ -1,6 +1,5 @@
 # Project_MT_DS
-![video explicación proyecto final](http://www.youtube.com/watch?v=Hrx6WkYNImQ)
-[![Video proyecto final](http://img.youtube.com/vi/Hrx6WkYNImQ/0.jpg)](http://www.youtube.com/watch?v=Hrx6WkYNImQ "Proyecto final")## Problema que abordarán y su contexto
+[![Explicación proyecto final](https://img.youtube.com/vi/Hrx6WkYNImQ/0.jpg)](https://www.youtube.com/watch?v=Hrx6WkYNImQ)
 
 
 Una empresa anónima de Retail cuenta con un basto portafolio de productos, y presencia de estos en diferentes países, lo anterior la ubica como empresa líder en retail y referencia para innovación y diseño de los mismos para todo tipo de necesidades en el hogar, lo anterior representa un reto en cuanto a administración, abastecimiento, rentabilidad y decisiones se trata.
