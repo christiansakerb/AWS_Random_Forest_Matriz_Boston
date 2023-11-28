@@ -36,6 +36,8 @@ carácter privado.
 ## Evidencia funcionamiento API-TABLERO
 https://youtu.be/d5TXNbbWYkQ
 
+[![Explicación segundo proyecto](https://img.youtube.com/vi/d5TXNbbWYkQ/0.jpg)](https://www.youtube.com/watch?v=d5TXNbbWYkQ)
+
 ### Integrantes 
 - Creator: Christian Saker
 - Principal Investigator: Laura Rodriguez
