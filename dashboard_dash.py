@@ -13,6 +13,16 @@ df = pd.read_csv('Archivo_para_tabler.csv')
 estilos_titulos = {'textAlign':'center', 'color': 'white','fontWeight': 'bold','border': 'white'}
 app = Dash(__name__)
 
+condition = [
+    {
+        'if': {
+            'filter_query': '{CUADRANTE_NUEVO} != {CALIFICACION}'
+        },
+        'backgroundColor': 'red'
+    }
+]
+
+
 api_url = os.getenv('API_URL')
 api_url = "http://{}:8001/api/v1/predict".format(api_url)
 
@@ -62,7 +72,7 @@ app.layout = html.Div([
     
     html.Div([
     
-        dash_table.DataTable(data=df.to_dict('records'), page_size=15,style_table={'margin-right': '50px'}),
+        dash_table.DataTable(data=df.to_dict('records'), page_size=15,style_table={'margin-right': '50px'},style_data_conditional=condition),
 
         html.Div([
             html.P("Predice en que cuadrante estará el producto el próximo mes",style={'textAlign': 'center','width': '100%','color': 'black','fontWeight': 'bold'}),
