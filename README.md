@@ -1,10 +1,8 @@
 # Project_MT_DS
-
-
-## Problema que abordarán y su contexto
-
-[![Video proyecto final](http://img.youtube.com/vi/Hrx6WkYNImQ/0.jpg)](http://www.youtube.com/watch?v=Hrx6WkYNImQ "Proyecto final")
-
+### VIDEO EXPLICACIÓN
+[![Explicación proyecto final](https://img.youtube.com/vi/Hrx6WkYNImQ/0.jpg)](https://www.youtube.com/watch?v=Hrx6WkYNImQ)
+<BR>
+https://www.youtube.com/watch?v=Hrx6WkYNImQ
 
 Una empresa anónima de Retail cuenta con un basto portafolio de productos, y presencia de estos en diferentes países, lo anterior la ubica como empresa líder en retail y referencia para innovación y diseño de los mismos para todo tipo de necesidades en el hogar, lo anterior representa un reto en cuanto a administración, abastecimiento, rentabilidad y decisiones se trata.
 
@@ -34,6 +32,11 @@ encargada de gestionar el acceso y la colaboración entre los miembros del proye
 información será abierto y sin restricciones para los cuatro investigadores principales, con el objetivo de no
 obstaculizar el progreso de la investigación. Cabe destacar que los datos utilizados en los análisis son de
 carácter privado.
+
+## Evidencia funcionamiento API-TABLERO
+https://youtu.be/d5TXNbbWYkQ
+
+[![Explicación segundo proyecto](https://img.youtube.com/vi/d5TXNbbWYkQ/0.jpg)](https://www.youtube.com/watch?v=d5TXNbbWYkQ)
 
 ### Integrantes 
 - Creator: Christian Saker
